@@ -1,0 +1,605 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DB52158A2B6C14EC004B4B1D /* pilgrimage_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5215892B6C14EC004B4B1D /* pilgrimage_appApp.swift */; };
+		DB52158C2B6C14EC004B4B1D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB52158B2B6C14EC004B4B1D /* ContentView.swift */; };
+		DB52158E2B6C14EC004B4B1D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB52158D2B6C14EC004B4B1D /* Item.swift */; };
+		DB5215902B6C14ED004B4B1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB52158F2B6C14ED004B4B1D /* Assets.xcassets */; };
+		DB5215932B6C14ED004B4B1D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB5215922B6C14ED004B4B1D /* Preview Assets.xcassets */; };
+		DB52159F2B6C14ED004B4B1D /* pilgrimage_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB52159E2B6C14ED004B4B1D /* pilgrimage_appTests.swift */; };
+		DB5215A92B6C14ED004B4B1D /* pilgrimage_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5215A82B6C14ED004B4B1D /* pilgrimage_appUITests.swift */; };
+		DB5215AB2B6C14ED004B4B1D /* pilgrimage_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5215AA2B6C14ED004B4B1D /* pilgrimage_appUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DB52159B2B6C14ED004B4B1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB52157E2B6C14EC004B4B1D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB5215852B6C14EC004B4B1D;
+			remoteInfo = pilgrimage_app;
+		};
+		DB5215A52B6C14ED004B4B1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB52157E2B6C14EC004B4B1D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB5215852B6C14EC004B4B1D;
+			remoteInfo = pilgrimage_app;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DB5215862B6C14EC004B4B1D /* pilgrimage_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pilgrimage_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB5215892B6C14EC004B4B1D /* pilgrimage_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pilgrimage_appApp.swift; sourceTree = "<group>"; };
+		DB52158B2B6C14EC004B4B1D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DB52158D2B6C14EC004B4B1D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		DB52158F2B6C14ED004B4B1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB5215922B6C14ED004B4B1D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DB5215942B6C14ED004B4B1D /* pilgrimage_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pilgrimage_app.entitlements; sourceTree = "<group>"; };
+		DB5215952B6C14ED004B4B1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB52159A2B6C14ED004B4B1D /* pilgrimage_appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pilgrimage_appTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB52159E2B6C14ED004B4B1D /* pilgrimage_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pilgrimage_appTests.swift; sourceTree = "<group>"; };
+		DB5215A42B6C14ED004B4B1D /* pilgrimage_appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pilgrimage_appUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB5215A82B6C14ED004B4B1D /* pilgrimage_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pilgrimage_appUITests.swift; sourceTree = "<group>"; };
+		DB5215AA2B6C14ED004B4B1D /* pilgrimage_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pilgrimage_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DB5215832B6C14EC004B4B1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB5215972B6C14ED004B4B1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB5215A12B6C14ED004B4B1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DB52157D2B6C14EC004B4B1D = {
+			isa = PBXGroup;
+			children = (
+				DB5215882B6C14EC004B4B1D /* pilgrimage_app */,
+				DB52159D2B6C14ED004B4B1D /* pilgrimage_appTests */,
+				DB5215A72B6C14ED004B4B1D /* pilgrimage_appUITests */,
+				DB5215872B6C14EC004B4B1D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DB5215872B6C14EC004B4B1D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DB5215862B6C14EC004B4B1D /* pilgrimage_app.app */,
+				DB52159A2B6C14ED004B4B1D /* pilgrimage_appTests.xctest */,
+				DB5215A42B6C14ED004B4B1D /* pilgrimage_appUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DB5215882B6C14EC004B4B1D /* pilgrimage_app */ = {
+			isa = PBXGroup;
+			children = (
+				DB5215892B6C14EC004B4B1D /* pilgrimage_appApp.swift */,
+				DB52158B2B6C14EC004B4B1D /* ContentView.swift */,
+				DB52158D2B6C14EC004B4B1D /* Item.swift */,
+				DB52158F2B6C14ED004B4B1D /* Assets.xcassets */,
+				DB5215942B6C14ED004B4B1D /* pilgrimage_app.entitlements */,
+				DB5215952B6C14ED004B4B1D /* Info.plist */,
+				DB5215912B6C14ED004B4B1D /* Preview Content */,
+			);
+			path = pilgrimage_app;
+			sourceTree = "<group>";
+		};
+		DB5215912B6C14ED004B4B1D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				DB5215922B6C14ED004B4B1D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DB52159D2B6C14ED004B4B1D /* pilgrimage_appTests */ = {
+			isa = PBXGroup;
+			children = (
+				DB52159E2B6C14ED004B4B1D /* pilgrimage_appTests.swift */,
+			);
+			path = pilgrimage_appTests;
+			sourceTree = "<group>";
+		};
+		DB5215A72B6C14ED004B4B1D /* pilgrimage_appUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DB5215A82B6C14ED004B4B1D /* pilgrimage_appUITests.swift */,
+				DB5215AA2B6C14ED004B4B1D /* pilgrimage_appUITestsLaunchTests.swift */,
+			);
+			path = pilgrimage_appUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DB5215852B6C14EC004B4B1D /* pilgrimage_app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB5215AE2B6C14ED004B4B1D /* Build configuration list for PBXNativeTarget "pilgrimage_app" */;
+			buildPhases = (
+				DB5215822B6C14EC004B4B1D /* Sources */,
+				DB5215832B6C14EC004B4B1D /* Frameworks */,
+				DB5215842B6C14EC004B4B1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pilgrimage_app;
+			productName = pilgrimage_app;
+			productReference = DB5215862B6C14EC004B4B1D /* pilgrimage_app.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DB5215992B6C14ED004B4B1D /* pilgrimage_appTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB5215B12B6C14ED004B4B1D /* Build configuration list for PBXNativeTarget "pilgrimage_appTests" */;
+			buildPhases = (
+				DB5215962B6C14ED004B4B1D /* Sources */,
+				DB5215972B6C14ED004B4B1D /* Frameworks */,
+				DB5215982B6C14ED004B4B1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB52159C2B6C14ED004B4B1D /* PBXTargetDependency */,
+			);
+			name = pilgrimage_appTests;
+			productName = pilgrimage_appTests;
+			productReference = DB52159A2B6C14ED004B4B1D /* pilgrimage_appTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DB5215A32B6C14ED004B4B1D /* pilgrimage_appUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB5215B42B6C14ED004B4B1D /* Build configuration list for PBXNativeTarget "pilgrimage_appUITests" */;
+			buildPhases = (
+				DB5215A02B6C14ED004B4B1D /* Sources */,
+				DB5215A12B6C14ED004B4B1D /* Frameworks */,
+				DB5215A22B6C14ED004B4B1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB5215A62B6C14ED004B4B1D /* PBXTargetDependency */,
+			);
+			name = pilgrimage_appUITests;
+			productName = pilgrimage_appUITests;
+			productReference = DB5215A42B6C14ED004B4B1D /* pilgrimage_appUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DB52157E2B6C14EC004B4B1D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					DB5215852B6C14EC004B4B1D = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					DB5215992B6C14ED004B4B1D = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = DB5215852B6C14EC004B4B1D;
+					};
+					DB5215A32B6C14ED004B4B1D = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = DB5215852B6C14EC004B4B1D;
+					};
+				};
+			};
+			buildConfigurationList = DB5215812B6C14EC004B4B1D /* Build configuration list for PBXProject "pilgrimage_app" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DB52157D2B6C14EC004B4B1D;
+			productRefGroup = DB5215872B6C14EC004B4B1D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DB5215852B6C14EC004B4B1D /* pilgrimage_app */,
+				DB5215992B6C14ED004B4B1D /* pilgrimage_appTests */,
+				DB5215A32B6C14ED004B4B1D /* pilgrimage_appUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DB5215842B6C14EC004B4B1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB5215932B6C14ED004B4B1D /* Preview Assets.xcassets in Resources */,
+				DB5215902B6C14ED004B4B1D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB5215982B6C14ED004B4B1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB5215A22B6C14ED004B4B1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DB5215822B6C14EC004B4B1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB52158C2B6C14EC004B4B1D /* ContentView.swift in Sources */,
+				DB52158E2B6C14EC004B4B1D /* Item.swift in Sources */,
+				DB52158A2B6C14EC004B4B1D /* pilgrimage_appApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB5215962B6C14ED004B4B1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB52159F2B6C14ED004B4B1D /* pilgrimage_appTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB5215A02B6C14ED004B4B1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB5215A92B6C14ED004B4B1D /* pilgrimage_appUITests.swift in Sources */,
+				DB5215AB2B6C14ED004B4B1D /* pilgrimage_appUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DB52159C2B6C14ED004B4B1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB5215852B6C14EC004B4B1D /* pilgrimage_app */;
+			targetProxy = DB52159B2B6C14ED004B4B1D /* PBXContainerItemProxy */;
+		};
+		DB5215A62B6C14ED004B4B1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB5215852B6C14EC004B4B1D /* pilgrimage_app */;
+			targetProxy = DB5215A52B6C14ED004B4B1D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DB5215AC2B6C14ED004B4B1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DB5215AD2B6C14ED004B4B1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DB5215AF2B6C14ED004B4B1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = pilgrimage_app/pilgrimage_app.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"pilgrimage_app/Preview Content\"";
+				DEVELOPMENT_TEAM = 44C7C58A7D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = pilgrimage_app/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "OTNPS.pilgrimage-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DB5215B02B6C14ED004B4B1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = pilgrimage_app/pilgrimage_app.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"pilgrimage_app/Preview Content\"";
+				DEVELOPMENT_TEAM = 44C7C58A7D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = pilgrimage_app/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "OTNPS.pilgrimage-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DB5215B22B6C14ED004B4B1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 44C7C58A7D;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "OTNPS.pilgrimage-appTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pilgrimage_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/pilgrimage_app";
+			};
+			name = Debug;
+		};
+		DB5215B32B6C14ED004B4B1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 44C7C58A7D;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "OTNPS.pilgrimage-appTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pilgrimage_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/pilgrimage_app";
+			};
+			name = Release;
+		};
+		DB5215B52B6C14ED004B4B1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 44C7C58A7D;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "OTNPS.pilgrimage-appUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = pilgrimage_app;
+			};
+			name = Debug;
+		};
+		DB5215B62B6C14ED004B4B1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 44C7C58A7D;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "OTNPS.pilgrimage-appUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = pilgrimage_app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DB5215812B6C14EC004B4B1D /* Build configuration list for PBXProject "pilgrimage_app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB5215AC2B6C14ED004B4B1D /* Debug */,
+				DB5215AD2B6C14ED004B4B1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB5215AE2B6C14ED004B4B1D /* Build configuration list for PBXNativeTarget "pilgrimage_app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB5215AF2B6C14ED004B4B1D /* Debug */,
+				DB5215B02B6C14ED004B4B1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB5215B12B6C14ED004B4B1D /* Build configuration list for PBXNativeTarget "pilgrimage_appTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB5215B22B6C14ED004B4B1D /* Debug */,
+				DB5215B32B6C14ED004B4B1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB5215B42B6C14ED004B4B1D /* Build configuration list for PBXNativeTarget "pilgrimage_appUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB5215B52B6C14ED004B4B1D /* Debug */,
+				DB5215B62B6C14ED004B4B1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DB52157E2B6C14EC004B4B1D /* Project object */;
+}
