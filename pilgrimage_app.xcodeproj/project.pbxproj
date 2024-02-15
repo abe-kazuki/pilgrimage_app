@@ -15,6 +15,8 @@
 		DB52159F2B6C14ED004B4B1D /* pilgrimage_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB52159E2B6C14ED004B4B1D /* pilgrimage_appTests.swift */; };
 		DB5215A92B6C14ED004B4B1D /* pilgrimage_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5215A82B6C14ED004B4B1D /* pilgrimage_appUITests.swift */; };
 		DB5215AB2B6C14ED004B4B1D /* pilgrimage_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5215AA2B6C14ED004B4B1D /* pilgrimage_appUITestsLaunchTests.swift */; };
+		DB64116B2B7E6DCC0080D304 /* MaptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB64116A2B7E6DCC0080D304 /* MaptView.swift */; };
+		DB64116D2B7E9A6B0080D304 /* RoundedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB64116C2B7E9A6B0080D304 /* RoundedButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		DB5215A42B6C14ED004B4B1D /* pilgrimage_appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pilgrimage_appUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB5215A82B6C14ED004B4B1D /* pilgrimage_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pilgrimage_appUITests.swift; sourceTree = "<group>"; };
 		DB5215AA2B6C14ED004B4B1D /* pilgrimage_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pilgrimage_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DB64116A2B7E6DCC0080D304 /* MaptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaptView.swift; sourceTree = "<group>"; };
+		DB64116C2B7E9A6B0080D304 /* RoundedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 				DB5215942B6C14ED004B4B1D /* pilgrimage_app.entitlements */,
 				DB5215952B6C14ED004B4B1D /* Info.plist */,
 				DB5215912B6C14ED004B4B1D /* Preview Content */,
+				DB64116A2B7E6DCC0080D304 /* MaptView.swift */,
+				DB64116C2B7E9A6B0080D304 /* RoundedButtonStyle.swift */,
 			);
 			path = pilgrimage_app;
 			sourceTree = "<group>";
@@ -266,6 +272,8 @@
 			files = (
 				DB52158C2B6C14EC004B4B1D /* ContentView.swift in Sources */,
 				DB52158E2B6C14EC004B4B1D /* Item.swift in Sources */,
+				DB64116D2B7E9A6B0080D304 /* RoundedButtonStyle.swift in Sources */,
+				DB64116B2B7E6DCC0080D304 /* MaptView.swift in Sources */,
 				DB52158A2B6C14EC004B4B1D /* pilgrimage_appApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
