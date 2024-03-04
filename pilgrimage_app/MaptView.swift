@@ -13,44 +13,26 @@ extension CLLocationCoordinate2D {
     static let spot2 = CLLocationCoordinate2D(latitude: 34.8092, longitude: 137.4303)
 }
 
-// アノテーションデータモデル
-struct AnnotationItem: Identifiable {
-    let id = UUID()
-    let coordinate: CLLocationCoordinate2D
-    let name: String
-    let color: Color
-    
-    init(coordinate: CLLocationCoordinate2D = .spot,
-         name : String,
-         color: Color = .orange
-    ) {
-        self.coordinate = coordinate
-        self.name = name
-        self.color = color
-    }
-}
-
 struct MaptView: View {
+    @ObservedObject var viewModel = SanctuaryListViewModel()
     @State private var searchText: String = ""
-    private let annotationItem: [AnnotationItem] = [
-        AnnotationItem(name: "test1"),
-        AnnotationItem(coordinate: .spot2, name: "test2")]
 
     // マップ上の円の位置
     @State private var mapCircleLocation: CLLocationCoordinate2D = .spot2
     var body: some View {
-        
         VStack {
-            ZStack(alignment: .top) {
+            ZStack(alignment: .bottomTrailing) {
                 MapReader { mapProxy in
                     Map {
-                        ForEach(annotationItem) { location in
-                            Marker(location.name, coordinate: location.coordinate)
-                                .tint(location.color)
+                        ForEach(viewModel.sanctuaries) { sanctuary in
+                            Marker(sanctuary.name,
+                                   coordinate: sanctuary.coordinate)
+                                .tint(sanctuary.color)
                         }
                         
-                        MapCircle(center: .spot2, radius: 50000)
-                            .foregroundStyle(.blue.opacity(0.0))
+                        MapCircle(center: viewModel.sanctuaries.first?.coordinate ?? .spot,
+                                  radius: 50000)
+                        .foregroundStyle(.blue.opacity(0.0))
                     }
                     .ignoresSafeArea()
                     .onTapGesture { location in
@@ -72,11 +54,12 @@ struct MaptView: View {
                             UIApplication.shared.open(url, options: [:], completionHandler: nil)
                         }
                         
-                    }.frame(alignment: .bottomTrailing)
-                        .buttonStyle(RoundedButtonStyle())
+                    }
+                    .buttonStyle(RoundedButtonStyle())
                 }
             }
-
+        }.onAppear(){
+            viewModel.fetchData()
         }
     }
 }
