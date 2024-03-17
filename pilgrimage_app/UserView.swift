@@ -20,8 +20,6 @@ struct UserView: View {
                 Text(sanctuary.coordinate.longitude.description)
                     .foregroundColor(.green)
             }
-        }.onAppear() {
-            viewModel.fetchData()
         }
     }    
 }

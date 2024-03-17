@@ -14,6 +14,7 @@ extension CLLocationCoordinate2D {
 }
 
 struct MaptView: View {
+    @Environment(\.modelContext) private var modelContext
     @ObservedObject var viewModel = SanctuaryListViewModel()
     @State private var searchText: String = ""
 

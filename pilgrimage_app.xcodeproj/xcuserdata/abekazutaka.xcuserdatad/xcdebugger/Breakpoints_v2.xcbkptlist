@@ -3,4 +3,86 @@
    uuid = "0DD67916-1960-4278-AA0B-B3715EA61DBC"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C417877D-593F-431F-9A72-23FB67B126FB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pilgrimage_app/view_model/SanctuaryViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "fetchData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D3C05C94-446F-4C44-9D95-923F575E209E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pilgrimage_app/data/SanctuaryRepositoryImp.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "fetchData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CF103C29-1BD0-4BE9-9099-39282AC512A3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pilgrimage_app/view_model/SanctuaryViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "fetchData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CF103C29-1BD0-4BE9-9099-39282AC512A3 - de3bc726005ef27b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Array&lt;pilgrimage_app.ContentModel&gt;) -&gt; () in pilgrimage_app.SanctuaryListViewModel.fetchData() -&gt; ()"
+                  moduleName = "pilgrimage_app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abekazutaka/Repositories/pilgrimage_app/pilgrimage_app/view_model/SanctuaryViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "308">
+               </Location>
+               <Location
+                  uuid = "CF103C29-1BD0-4BE9-9099-39282AC512A3 - a47384913db5bb39"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (pilgrimage_app.ContentModel) -&gt; Swift.Array&lt;pilgrimage_app.SanctuaryListViewModel.AnnotationSanctuary&gt; in closure #2 (Swift.Array&lt;pilgrimage_app.ContentModel&gt;) -&gt; () in pilgrimage_app.SanctuaryListViewModel.fetchData() -&gt; ()"
+                  moduleName = "pilgrimage_app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abekazutaka/Repositories/pilgrimage_app/pilgrimage_app/view_model/SanctuaryViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

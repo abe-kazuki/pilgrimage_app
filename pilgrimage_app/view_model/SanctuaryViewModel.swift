@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
-import Firebase
 import MapKit
+import Combine
 
 class SanctuaryListViewModel: ObservableObject {
     @Published var sanctuaries: [AnnotationSanctuary] = []
-    private var db = Firestore.firestore()
+    @ObservationIgnored private let reposity: SanctuaryRepository
+    private var cancellables = [AnyCancellable]()
+    
+    init(reposity: SanctuaryRepository = SanctuaryRepository.shared) {
+        self.reposity = reposity
+    }
+    
     
     struct AnnotationSanctuary: Identifiable {
         let id = UUID()
@@ -31,25 +37,27 @@ class SanctuaryListViewModel: ObservableObject {
     }
     
     func fetchData() {
-        db.collection("sancutualy").addSnapshotListener { querySnapshot, error in
-            if let error = error {
-                // エラーが発生した場合の処理
-                print("エラーが発生しました: \(error.localizedDescription)")
-                return
+        
+        reposity.fetchData()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+            switch completion {
+            case .finished:
+                print("Data fetching completed!")
+            case .failure(let error):
+                print("Error fetching data: \(error)")
             }
-            guard let documents = querySnapshot?.documents else {
-                print("No documents")
-                return
+        }, receiveValue: { contents in
+            // データの取得が完了し、Firestoreから取得したデータ(contents)がここで利用可能
+            print("Fetched contents:", contents)
+            // ViewModelで受け取る処理を行う
+            let results : [AnnotationSanctuary] = contents.flatMap{ content in
+                content.sancutualies.compactMap { sancutualy in
+                    return AnnotationSanctuary(latitude: sancutualy.latitude, longitude: sancutualy.longitude, name: sancutualy.name)
+                }
             }
-            
-            self.sanctuaries = documents.compactMap { document in
-                try? document.data(as: Sanctuary.self)
-            }.map{ sanctuary in
-                AnnotationSanctuary(
-                    latitude: sanctuary.latitude, longitude: sanctuary.longitude, name: sanctuary.name
-                )
-            }
-        }
+            self.sanctuaries = results
+        }).store(in: &cancellables)
     }
 }
 
