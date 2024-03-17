@@ -7,6 +7,7 @@
 
 import FirebaseFirestoreSwift
 import SwiftData
+import Foundation
 
 
 @Model
@@ -30,6 +31,7 @@ class SancutualyModel {
 class ContentModel {
     @Attribute(.unique) let id: String?
     var title: String
+    var createdDate: Date
     @Relationship(inverse: \SancutualyModel.parent)
     var sancutualies: [SancutualyModel]
     
@@ -37,6 +39,7 @@ class ContentModel {
         self.id = id
         self.title = title
         self.sancutualies = sancutualies
+        self.createdDate = Date.now
     }
 }
 

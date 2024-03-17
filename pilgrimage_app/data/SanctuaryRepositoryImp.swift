@@ -11,6 +11,7 @@ import Combine
 
 
 final class SanctuaryRepository {
+    let updateLimit: Double = -3660
     private var firebase = Firestore.firestore()
     
     private let modelContainer: ModelContainer
@@ -26,17 +27,31 @@ final class SanctuaryRepository {
     }
     
     func fetchData() -> AnyPublisher<[ContentModel], Error> {
-        return Future<[ContentModel], Error> { promise in
-            self._fetchFreshData { _ in
-                do {
-                    let contents: [ContentModel] = try self.modelContext.fetch(FetchDescriptor<ContentModel>())
+        do {
+            let contents: [ContentModel] = try self.modelContext.fetch(FetchDescriptor<ContentModel>())
+            // falseならretrunする
+            guard (contents.last?.createdDate.timeIntervalSinceNow ?? updateLimit - 1) <= updateLimit else {
+                return Future<[ContentModel], Error> { promise in
                     promise(.success(contents))
-                } catch {
-                    promise(.failure(error))
+                }.eraseToAnyPublisher()
+            }
+            return Future<[ContentModel], Error> { promise in
+                self._fetchFreshData { _ in
+                    do {
+                        let contents: [ContentModel] = try self.modelContext.fetch(FetchDescriptor<ContentModel>())
+                        promise(.success(contents))
+                    } catch {
+                        promise(.failure(error))
+                    }
                 }
             }
+            .eraseToAnyPublisher()
+            
+        } catch {
+            return Future<[ContentModel], Error> { promise in
+                promise(.failure(error))
+            }.eraseToAnyPublisher()
         }
-        .eraseToAnyPublisher()
     }
     
     private func _fetchFreshData(completion: @escaping (Result<Void, Error>) -> Void) {
@@ -80,12 +95,8 @@ final class SanctuaryRepository {
                     }
                     let model = ContentModel(id: content.id, title: content.title, sancutualies: targetSancutuaries)
                     self.modelContext.insert(model)
-                    do {
-                        try self.modelContext.save()
-                    } catch {
-                        fatalError(error.localizedDescription)
-                    }
                 }
+                completion(.success(()))
                 do {
                     try self.modelContext.save()
                     completion(.success(()))
