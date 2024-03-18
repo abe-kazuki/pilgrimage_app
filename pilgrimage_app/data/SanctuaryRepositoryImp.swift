@@ -11,7 +11,7 @@ import Combine
 
 
 final class SanctuaryRepository {
-    let updateLimit: Double = -3660
+    private let updateLimit: Double = -3660
     private var firebase = Firestore.firestore()
     
     private let modelContainer: ModelContainer
@@ -52,6 +52,23 @@ final class SanctuaryRepository {
                 promise(.failure(error))
             }.eraseToAnyPublisher()
         }
+    }
+    
+    func getData(text: String) -> AnyPublisher<[ContentModel], Error> {
+        let predicate = #Predicate<ContentModel> { content in            content.title.contains(text)
+        }
+        let descriptor = FetchDescriptor(predicate: predicate)
+        return Future<[ContentModel], Error> { promise in
+            self._fetchFreshData { _ in
+                do {
+                    let contents: [ContentModel] = try self.modelContext.fetch(descriptor)
+                    promise(.success(contents))
+                } catch {
+                    promise(.failure(error))
+                }
+            }
+        }
+        .eraseToAnyPublisher()
     }
     
     private func _fetchFreshData(completion: @escaping (Result<Void, Error>) -> Void) {

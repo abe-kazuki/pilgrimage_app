@@ -15,14 +15,14 @@ extension CLLocationCoordinate2D {
 
 struct MaptView: View {
     @Environment(\.modelContext) private var modelContext
-    @ObservedObject var viewModel = SanctuaryListViewModel()
-    @State private var searchText: String = ""
+    @ObservedObject private var viewModel = SanctuaryListViewModel()
+    @State private var isListVisible = true
 
     // マップ上の円の位置
     @State private var mapCircleLocation: CLLocationCoordinate2D = .spot2
     var body: some View {
         VStack {
-            ZStack(alignment: .bottomTrailing) {
+            ZStack(alignment: .topLeading) {
                 MapReader { mapProxy in
                     Map {
                         ForEach(viewModel.sanctuaries) { sanctuary in
@@ -43,21 +43,33 @@ struct MaptView: View {
                 }
 
                 VStack {
-                    TextField("Search", text:  $searchText)
+                    TextField("Search", text:  $viewModel.searchText)
                         .padding()
                         .background(Color.white)
-                        .cornerRadius(8)
+                        .background(Color.gray.opacity(0.2))
+                        .cornerRadius(10)
                         .padding(.horizontal)
-                        .padding(.top, 10)
-                    Button("Open Google Maps") {
-                        // Google Mapsに遷移する処理を実装
-                        if let url = URL(string: "comgooglemaps://?center=35.6092,139.7303") {
-                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        .onTapGesture {
+                            self.isListVisible = true
                         }
-                        
+                    if isListVisible {
+                        List(viewModel.sanctuaries) { sanctuary in
+                            Text(sanctuary.title)
+                                .onTapGesture {
+                                    viewModel.searchText = sanctuary.title
+                                    self.isListVisible = false
+                                }
+                        }
+                        .listStyle(PlainListStyle())
+                        .padding(.horizontal)
                     }
-                    .buttonStyle(RoundedButtonStyle())
                 }
+                .gesture(
+                    TapGesture()
+                        .onEnded { _ in
+                            self.isListVisible = false
+                        }
+                )
             }
         }.onAppear(){
             viewModel.fetchData()

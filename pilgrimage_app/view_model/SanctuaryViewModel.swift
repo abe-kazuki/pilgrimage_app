@@ -11,6 +11,11 @@ import Combine
 
 class SanctuaryListViewModel: ObservableObject {
     @Published var sanctuaries: [AnnotationSanctuary] = []
+    @Published var searchText: String = "" {
+        didSet {
+            search()
+        }
+    }
     @ObservationIgnored private let reposity: SanctuaryRepository
     private var cancellables = [AnyCancellable]()
     
@@ -24,20 +29,21 @@ class SanctuaryListViewModel: ObservableObject {
         let coordinate: CLLocationCoordinate2D
         let name: String
         let color: Color
+        let title: String
         
         init(latitude: Double,
              longitude: Double,
              name: String,
+             title: String,
              color: Color = .orange
         ) {
             self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             self.name = name
+            self.title = title
             self.color = color
         }
     }
-    
     func fetchData() {
-        
         reposity.fetchData()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
@@ -53,7 +59,40 @@ class SanctuaryListViewModel: ObservableObject {
             // ViewModelで受け取る処理を行う
             let results : [AnnotationSanctuary] = contents.flatMap{ content in
                 content.sancutualies.compactMap { sancutualy in
-                    return AnnotationSanctuary(latitude: sancutualy.latitude, longitude: sancutualy.longitude, name: sancutualy.name)
+                    let contentTitle: String = content.title;
+                    return AnnotationSanctuary(latitude: sancutualy.latitude,
+                                               longitude: sancutualy.longitude,
+                                               name: sancutualy.name,
+                                               title: contentTitle)
+                }
+            }
+            self.sanctuaries = results
+        }).store(in: &cancellables)
+    }
+    
+    func search() {
+        //self.searchText = keyword
+        print(self.searchText)
+        reposity.getData(text: self.searchText)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+            switch completion {
+            case .finished:
+                print("Data fetching completed!")
+            case .failure(let error):
+                print("Error fetching data: \(error)")
+            }
+        }, receiveValue: { contents in
+            // データの取得が完了し、Firestoreから取得したデータ(contents)がここで利用可能
+            print("Fetched contents:", contents)
+            // ViewModelで受け取る処理を行う
+            let results : [AnnotationSanctuary] = contents.flatMap{ content in
+                content.sancutualies.compactMap { sancutualy in
+                    let contentTitle: String = content.title;
+                    return AnnotationSanctuary(latitude: sancutualy.latitude,
+                                               longitude: sancutualy.longitude,
+                                               name: sancutualy.name,
+                                               title: contentTitle)
                 }
             }
             self.sanctuaries = results
