@@ -38,7 +38,7 @@ struct MaptView: View {
                     .ignoresSafeArea()
                     .onTapGesture { location in
                         guard let selectedLocation = mapProxy.convert(location, from: .local) else { return }
-                        mapCircleLocation = selectedLocation
+                        mapCircleLocation = viewModel.sanctuaries.first?.coordinate ?? .spot
                     }
                 }
 
@@ -52,15 +52,17 @@ struct MaptView: View {
                         .onTapGesture {
                             self.isListVisible = true
                         }
-                    List(viewModel.sanctuaries) { sanctuary in
-                        Text(sanctuary.title)
-                            .onTapGesture {
-                                viewModel.searchText = sanctuary.title
-                                self.isListVisible = true
-                            }
+                    if isListVisible {
+                        List(viewModel.sanctuaries) { sanctuary in
+                            Text(sanctuary.title)
+                                .onTapGesture {
+                                    viewModel.searchText = sanctuary.title
+                                    self.isListVisible = true
+                                }
+                        }
+                        .listStyle(PlainListStyle())
+                        .padding(.horizontal)
                     }
-                    .listStyle(PlainListStyle())
-                    .padding(.horizontal)
                 }
                 .gesture(
                     TapGesture()
