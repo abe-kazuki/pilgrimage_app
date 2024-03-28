@@ -22,7 +22,7 @@ final class SanctuaryRepository {
     
     @MainActor
     private init() {
-        self.modelContainer = try! ModelContainer(for: ContentModel.self)
+        self.modelContainer = try! ModelContainer(for: ContentModel.self, SancutualyModel.self)
         self.modelContext = modelContainer.mainContext
     }
     
@@ -59,13 +59,11 @@ final class SanctuaryRepository {
         }
         let descriptor = FetchDescriptor(predicate: predicate)
         return Future<[ContentModel], Error> { promise in
-            self._fetchFreshData { _ in
-                do {
-                    let contents: [ContentModel] = try self.modelContext.fetch(descriptor)
-                    promise(.success(contents))
-                } catch {
-                    promise(.failure(error))
-                }
+            do {
+                let contents: [ContentModel] = try self.modelContext.fetch(descriptor)
+                promise(.success(contents))
+            } catch {
+                promise(.failure(error))
             }
         }
         .eraseToAnyPublisher()
@@ -104,22 +102,22 @@ final class SanctuaryRepository {
                 sancutuaries = documents.compactMap { document in
                     try? document.data(as: Sanctuary.self)
                 }
-                contents.forEach{ content in
-                    let targetSancutuaries = sancutuaries.filter{ sancutuary in
-                        content.sancutualyDocumentIds.contains(sancutuary.id ?? "")
-                    }.map{ entity in
-                        SancutualyModel(id: entity.id ?? "", name: entity.name, latitude: entity.latitude, longitude: entity.longitude)
-                    }
-                    let model = ContentModel(id: content.id, title: content.title, sancutualies: targetSancutuaries)
-                    self.modelContext.insert(model)
-                }
-                completion(.success(()))
                 do {
-                    try self.modelContext.save()
-                    completion(.success(()))
+                    try self.modelContext.transaction {
+                        contents.forEach{ content in
+                            let targetSancutuaries = sancutuaries.filter{ sancutuary in
+                                content.sancutualyDocumentIds.contains(sancutuary.id ?? "")
+                            }.map{ entity in
+                                SancutualyModel(id: entity.id ?? "", name: entity.name, latitude: entity.latitude, longitude: entity.longitude)
+                            }
+                            let model = ContentModel(id: content.id, title: content.title, sancutualies: targetSancutuaries)
+                            self.modelContext.insert(model)
+                        }
+                    }
                 } catch {
                     fatalError(error.localizedDescription)
                 }
+                completion(.success(()))
             }
         }
     }

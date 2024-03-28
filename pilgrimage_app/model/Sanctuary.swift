@@ -16,13 +16,19 @@ class SancutualyModel {
     let name: String
     let latitude: Double
     let longitude: Double
-    var parent: ContentModel?
     
     init(id: String,name: String, latitude: Double, longitude: Double) {
         self.id = id
         self.name = name
         self.latitude = latitude
         self.longitude = longitude
+    }
+    
+    func convertoToSateDate(title: String)  -> SanctuaryListViewModel.AnnotationSanctuary {
+        SanctuaryListViewModel.AnnotationSanctuary(latitude: latitude,
+                                                   longitude: longitude,
+                                                   name: name,
+                                                   title: title)
     }
 }
 
@@ -32,7 +38,7 @@ class ContentModel {
     @Attribute(.unique) let id: String?
     var title: String
     var createdDate: Date
-    @Relationship(inverse: \SancutualyModel.parent)
+    @Relationship
     var sancutualies: [SancutualyModel]
     
     init(id: String?, title: String, sancutualies: [SancutualyModel]) {

@@ -71,7 +71,6 @@ class SanctuaryListViewModel: ObservableObject {
     }
     
     func search() {
-        //self.searchText = keyword
         print(self.searchText)
         reposity.getData(text: self.searchText)
             .receive(on: DispatchQueue.main)
@@ -84,15 +83,9 @@ class SanctuaryListViewModel: ObservableObject {
             }
         }, receiveValue: { contents in
             // データの取得が完了し、Firestoreから取得したデータ(contents)がここで利用可能
-            print("Fetched contents:", contents)
-            // ViewModelで受け取る処理を行う
-            let results : [AnnotationSanctuary] = contents.flatMap{ content in
-                content.sancutualies.compactMap { sancutualy in
-                    let contentTitle: String = content.title;
-                    return AnnotationSanctuary(latitude: sancutualy.latitude,
-                                               longitude: sancutualy.longitude,
-                                               name: sancutualy.name,
-                                               title: contentTitle)
+            let results : [AnnotationSanctuary] = contents.flatMap { content in
+                return content.sancutualies.map{ sancutualy in
+                    sancutualy.convertoToSateDate(title: content.title)
                 }
             }
             self.sanctuaries = results

@@ -52,17 +52,15 @@ struct MaptView: View {
                         .onTapGesture {
                             self.isListVisible = true
                         }
-                    if isListVisible {
-                        List(viewModel.sanctuaries) { sanctuary in
-                            Text(sanctuary.title)
-                                .onTapGesture {
-                                    viewModel.searchText = sanctuary.title
-                                    self.isListVisible = false
-                                }
-                        }
-                        .listStyle(PlainListStyle())
-                        .padding(.horizontal)
+                    List(viewModel.sanctuaries) { sanctuary in
+                        Text(sanctuary.title)
+                            .onTapGesture {
+                                viewModel.searchText = sanctuary.title
+                                self.isListVisible = true
+                            }
                     }
+                    .listStyle(PlainListStyle())
+                    .padding(.horizontal)
                 }
                 .gesture(
                     TapGesture()
