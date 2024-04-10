@@ -42,6 +42,11 @@ class SanctuaryListViewModel: ObservableObject {
             self.title = title
             self.color = color
         }
+        
+        func googleMapsURL() -> URL {
+            let urlString = "https://www.google.com/maps/search/?api=1&query=\(coordinate.latitude),\(coordinate.longitude)"
+            return URL(string: urlString) ?? URL.applicationDirectory
+        }
     }
     func fetchData() {
         reposity.fetchData()

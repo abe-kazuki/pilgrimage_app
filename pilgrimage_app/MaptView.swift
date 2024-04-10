@@ -13,10 +13,11 @@ extension CLLocationCoordinate2D {
     static let spot2 = CLLocationCoordinate2D(latitude: 34.8092, longitude: 137.4303)
 }
 
+
 struct MaptView: View {
     @Environment(\.modelContext) private var modelContext
     @ObservedObject private var viewModel = SanctuaryListViewModel()
-    @State private var isListVisible = true
+    @FocusState var isFocused: Bool
 
     // マップ上の円の位置
     @State private var mapCircleLocation: CLLocationCoordinate2D = .spot2
@@ -26,18 +27,27 @@ struct MaptView: View {
                 MapReader { mapProxy in
                     Map {
                         ForEach(viewModel.sanctuaries) { sanctuary in
-                            Marker(sanctuary.name,
-                                   coordinate: sanctuary.coordinate)
-                                .tint(sanctuary.color)
+                            Annotation(sanctuary.id.description, coordinate: sanctuary.coordinate) {
+                                  VStack {
+                                      // ここはアイコン考える
+                                      Text(sanctuary.name)
+                                          .foregroundColor(.black)
+                                          .dynamicTypeSize(.small)
+                                      Circle()
+                                        .fill(sanctuary.color)
+                                        .frame(width: 15, height: 15)
+                                      SpeechBubble(content: sanctuary.title, url: sanctuary.googleMapsURL())
+                                  }
+                            }
                         }
                         
                         MapCircle(center: viewModel.sanctuaries.first?.coordinate ?? .spot,
                                   radius: 50000)
                         .foregroundStyle(.blue.opacity(0.0))
+                        
                     }
-                    .ignoresSafeArea()
                     .onTapGesture { location in
-                        guard let selectedLocation = mapProxy.convert(location, from: .local) else { return }
+                        guard mapProxy.convert(location, from: .local) != nil else { return }
                         mapCircleLocation = viewModel.sanctuaries.first?.coordinate ?? .spot
                     }
                 }
@@ -49,15 +59,12 @@ struct MaptView: View {
                         .background(Color.gray.opacity(0.2))
                         .cornerRadius(10)
                         .padding(.horizontal)
-                        .onTapGesture {
-                            self.isListVisible = true
-                        }
-                    if isListVisible {
+                        .focused($isFocused)
+                    if isFocused {
                         List(viewModel.sanctuaries) { sanctuary in
                             Text(sanctuary.title)
                                 .onTapGesture {
                                     viewModel.searchText = sanctuary.title
-                                    self.isListVisible = true
                                 }
                         }
                         .listStyle(PlainListStyle())
@@ -67,13 +74,43 @@ struct MaptView: View {
                 .gesture(
                     TapGesture()
                         .onEnded { _ in
-                            self.isListVisible = false
+                            self.isFocused = false
                         }
                 )
             }
         }.onAppear(){
             viewModel.fetchData()
         }
+    }
+}
+
+struct SpeechBubble: View {
+    let content: String
+    let url: URL
+    
+    var body: some View {
+        HStack(spacing: 1) {
+            Text(content)
+                .foregroundColor(.black)
+                .cornerRadius(5)
+            Button(action: {
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                }
+            }) {
+                Image(systemName: "map")
+                .foregroundColor(.blue)
+                .background(Color.white)
+                .cornerRadius(10)
+                .shadow(radius: 4)
+            }
+            .padding(5)
+            
+        }
+        .padding(2)
+        .background(Color.white)
+        .cornerRadius(10)
+        .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
     }
 }
 
