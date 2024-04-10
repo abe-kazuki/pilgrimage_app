@@ -10,7 +10,6 @@ import SwiftUI
 
 extension CLLocationCoordinate2D {
     static let spot = CLLocationCoordinate2D(latitude: 35.6092, longitude: 137.7303)
-    static let spot2 = CLLocationCoordinate2D(latitude: 34.8092, longitude: 137.4303)
 }
 
 
@@ -20,7 +19,7 @@ struct MaptView: View {
     @FocusState var isFocused: Bool
 
     // マップ上の円の位置
-    @State private var mapCircleLocation: CLLocationCoordinate2D = .spot2
+    @State private var mapCircleLocation: CLLocationCoordinate2D = .spot
     var body: some View {
         VStack {
             ZStack(alignment: .topLeading) {
@@ -36,7 +35,9 @@ struct MaptView: View {
                                       Circle()
                                         .fill(sanctuary.color)
                                         .frame(width: 15, height: 15)
-                                      SpeechBubble(content: sanctuary.title, url: sanctuary.googleMapsURL())
+                                      if viewModel.isOnlyContent {
+                                          ContentInfoWindow(content: sanctuary.title, url: sanctuary.googleMapsURL())
+                                      }
                                   }
                             }
                         }
@@ -48,7 +49,6 @@ struct MaptView: View {
                     }
                     .onTapGesture { location in
                         guard mapProxy.convert(location, from: .local) != nil else { return }
-                        mapCircleLocation = viewModel.sanctuaries.first?.coordinate ?? .spot
                     }
                 }
 
@@ -84,35 +84,6 @@ struct MaptView: View {
     }
 }
 
-struct SpeechBubble: View {
-    let content: String
-    let url: URL
-    
-    var body: some View {
-        HStack(spacing: 1) {
-            Text(content)
-                .foregroundColor(.black)
-                .cornerRadius(5)
-            Button(action: {
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url)
-                }
-            }) {
-                Image(systemName: "map")
-                .foregroundColor(.blue)
-                .background(Color.white)
-                .cornerRadius(10)
-                .shadow(radius: 4)
-            }
-            .padding(5)
-            
-        }
-        .padding(2)
-        .background(Color.white)
-        .cornerRadius(10)
-        .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
-    }
-}
 
 #Preview {
     ContentView()

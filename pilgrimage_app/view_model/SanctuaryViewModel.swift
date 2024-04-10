@@ -16,6 +16,7 @@ class SanctuaryListViewModel: ObservableObject {
             search()
         }
     }
+    @Published var isOnlyContent: Bool = false
     @ObservationIgnored private let reposity: SanctuaryRepository
     private var cancellables = [AnyCancellable]()
     
@@ -59,19 +60,7 @@ class SanctuaryListViewModel: ObservableObject {
                 print("Error fetching data: \(error)")
             }
         }, receiveValue: { contents in
-            // データの取得が完了し、Firestoreから取得したデータ(contents)がここで利用可能
-            print("Fetched contents:", contents)
-            // ViewModelで受け取る処理を行う
-            let results : [AnnotationSanctuary] = contents.flatMap{ content in
-                content.sancutualies.compactMap { sancutualy in
-                    let contentTitle: String = content.title;
-                    return AnnotationSanctuary(latitude: sancutualy.latitude,
-                                               longitude: sancutualy.longitude,
-                                               name: sancutualy.name,
-                                               title: contentTitle)
-                }
-            }
-            self.sanctuaries = results
+            self.monitoredUpdate(contents: contents)
         }).store(in: &cancellables)
     }
     
@@ -87,14 +76,19 @@ class SanctuaryListViewModel: ObservableObject {
                 print("Error fetching data: \(error)")
             }
         }, receiveValue: { contents in
-            // データの取得が完了し、Firestoreから取得したデータ(contents)がここで利用可能
-            let results : [AnnotationSanctuary] = contents.flatMap { content in
-                return content.sancutualies.map{ sancutualy in
-                    sancutualy.convertoToSateDate(title: content.title)
-                }
-            }
-            self.sanctuaries = results
+            self.monitoredUpdate(contents: contents)
         }).store(in: &cancellables)
+    }
+    
+    private func monitoredUpdate(contents: [ContentModel]) {
+        // データの取得が完了し、Firestoreから取得したデータ(contents)がここで利用可能
+        let results : [AnnotationSanctuary] = contents.flatMap { content in
+            return content.sancutualies.map{ sancutualy in
+                sancutualy.convertoToSateDate(title: content.title)
+            }
+        }
+        self.isOnlyContent = contents.count == 1
+        self.sanctuaries = results
     }
 }
 
