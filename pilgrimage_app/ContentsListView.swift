@@ -8,28 +8,34 @@
 import SwiftUI
 
 struct ContentsListView: View {
-    @ObservedObject private var viewModel = SanctuaryListViewModel()
+    @ObservedObject private var viewModel: SanctuaryListViewModel
+    @ObservedObject var navigationViewModel: NavigationViewModel
     @Environment(\.modelContext) private var modelContext
+    @Binding var searchText: String
+    
+    init(navigationViewModel: NavigationViewModel, searchText: Binding<String>) {
+        self.viewModel = SanctuaryListViewModel()
+        self.navigationViewModel = navigationViewModel
+        self._searchText = searchText
+    }
+    
     var body: some View {
-        NavigationView {
+        VStack {
             List {
                 ForEach(viewModel.uniqueTitles, id: \.self) {title in
                     Text(title)
                         .onTapGesture {
-                            print(title)
+                            self.navigationViewModel.didSelectItem()
+                            self.searchText = title
                         }
                 }.refreshable {
-                    viewModel.fetchData()
+                    self.viewModel.fetchData()
                 }.navigationTitle("作品一覧")
                 
             }
         }.onAppear() {
-            viewModel.fetchData()
+            self.viewModel.fetchData()
         }
-
     }
 }
 
-#Preview {
-    ContentsListView()
-}

@@ -8,44 +8,28 @@
 import SwiftUI
 import SwiftData
 
-
-
-
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @ObservedObject private var navigationViewModel = NavigationViewModel()
+    @State private var searchText = ""
 
     var body: some View {
-        TabView {
-            MaptView().tabItem {
-                Text("map").font(.custom("Times-Roman", size: 100))
-                Image(systemName: "command")
+        TabView(selection: $navigationViewModel.selectedTab) {
+            NavigationView {
+                CustopMapView(searchText: $searchText)
             }
-            ContentsListView().tabItem {
-                Text("Contents").font(.custom("Times-Roman", size: 100))
-                Image(systemName: "book.pages")
+            .tabItem {
+                Label("Map", systemImage: "map")
             }
-        }
-    }
-    
-    struct SecondView: View {
-        var body: some View {
-            Text("タブメニュー２の画面")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+            .tag(0)
+            
+            NavigationView {
+                ContentsListView(navigationViewModel: navigationViewModel, searchText: $searchText)
             }
+            .tabItem {
+                Label("Contents", systemImage: "list.bullet.clipboard")
+            }
+            .tag(1)
         }
     }
 }

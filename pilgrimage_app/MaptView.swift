@@ -13,11 +13,12 @@ extension CLLocationCoordinate2D {
 }
 
 
-struct MaptView: View {
+struct CustopMapView: View {
     @Environment(\.modelContext) private var modelContext
     @ObservedObject private var viewModel = SanctuaryListViewModel()
     @FocusState var isFocused: Bool
-
+    @Binding var searchText: String
+    
     // マップ上の円の位置
     @State private var mapCircleLocation: CLLocationCoordinate2D = .spot
     var body: some View {
@@ -61,11 +62,13 @@ struct MaptView: View {
                         .padding(.horizontal)
                         .focused($isFocused)
                     if isFocused {
-                        List(viewModel.sanctuaries) { sanctuary in
-                            Text(sanctuary.title)
-                                .onTapGesture {
-                                    viewModel.searchText = sanctuary.title
-                                }
+                        List{
+                            ForEach(viewModel.uniqueTitles, id: \.self) { title in
+                                Text(title)
+                                    .onTapGesture {
+                                        self.viewModel.searchText = title
+                                    }
+                            }
                         }
                         .listStyle(PlainListStyle())
                         .padding(.horizontal)
@@ -80,6 +83,7 @@ struct MaptView: View {
             }
         }.onAppear(){
             viewModel.fetchData()
+            viewModel.searchText = searchText
         }
     }
 }
