@@ -10,7 +10,11 @@ import MapKit
 import Combine
 
 class SanctuaryListViewModel: ObservableObject {
-    @Published var sanctuaries: [AnnotationSanctuary] = []
+    @Published var sanctuaries: [AnnotationSanctuary] = [] {
+        didSet {
+            self.uniqueTitles = Array(Set(sanctuaries.map { $0.title })).sorted()
+        }
+    }
     @Published var searchText: String = "" {
         didSet {
             search()
@@ -20,9 +24,7 @@ class SanctuaryListViewModel: ObservableObject {
     @ObservationIgnored private let reposity: SanctuaryRepository
     private var cancellables = [AnyCancellable]()
     
-    var uniqueTitles: [String] {
-        Array(Set(sanctuaries.map { $0.title })).sorted()
-    }
+    @Published var uniqueTitles: [String] = []
     
     init(reposity: SanctuaryRepository = SanctuaryRepository.shared) {
         self.reposity = reposity

@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct ContentsListView: View {
-    @ObservedObject private var viewModel: SanctuaryListViewModel
-    @ObservedObject var navigationViewModel: NavigationViewModel
+    @ObservedObject private var viewModel: SanctuaryListViewModel = SanctuaryListViewModel()
+    @EnvironmentObject var navigationViewModel: NavigationViewModel
     @Environment(\.modelContext) private var modelContext
     @Binding var searchText: String
     
-    init(navigationViewModel: NavigationViewModel, searchText: Binding<String>) {
-        self.viewModel = SanctuaryListViewModel()
-        self.navigationViewModel = navigationViewModel
+    init(searchText: Binding<String>) {
         self._searchText = searchText
+        self.viewModel.fetchData()
     }
     
     var body: some View {
-        VStack {
-            List {
-                ForEach(viewModel.uniqueTitles, id: \.self) {title in
+        List {
+            ForEach(self.viewModel.uniqueTitles, id: \.self) {title in
+                HStack {
+                    Image(systemName: "map.fill")
                     Text(title)
                         .onTapGesture {
                             self.navigationViewModel.didSelectItem()
@@ -31,10 +31,7 @@ struct ContentsListView: View {
                 }.refreshable {
                     self.viewModel.fetchData()
                 }.navigationTitle("作品一覧")
-                
             }
-        }.onAppear() {
-            self.viewModel.fetchData()
         }
     }
 }

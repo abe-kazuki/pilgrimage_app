@@ -16,6 +16,7 @@ extension CLLocationCoordinate2D {
 struct CustopMapView: View {
     @Environment(\.modelContext) private var modelContext
     @ObservedObject private var viewModel = SanctuaryListViewModel()
+    @ObservedObject var navigationViewModel: NavigationViewModel
     @FocusState var isFocused: Bool
     @Binding var searchText: String
     
@@ -33,9 +34,10 @@ struct CustopMapView: View {
                                       Text(sanctuary.name)
                                           .foregroundColor(.black)
                                           .dynamicTypeSize(.small)
-                                      Circle()
-                                        .fill(sanctuary.color)
-                                        .frame(width: 15, height: 15)
+                                      Image(systemName: "mappin")
+                                          .resizable()
+                                          .frame(width: 15, height: 30)
+                                          .foregroundColor(sanctuary.color)
                                       if viewModel.isOnlyContent {
                                           ContentInfoWindow(content: sanctuary.title, url: sanctuary.googleMapsURL())
                                       }

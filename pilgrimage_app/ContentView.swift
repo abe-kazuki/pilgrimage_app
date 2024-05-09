@@ -10,21 +10,22 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @ObservedObject private var navigationViewModel = NavigationViewModel()
+    @EnvironmentObject private var navigationViewModel: NavigationViewModel
     @State private var searchText = ""
 
     var body: some View {
         TabView(selection: $navigationViewModel.selectedTab) {
             NavigationView {
-                CustopMapView(searchText: $searchText)
+                CustopMapView(navigationViewModel: navigationViewModel, searchText: $searchText)
             }
+            .environmentObject(navigationViewModel)
             .tabItem {
                 Label("Map", systemImage: "map")
             }
             .tag(0)
             
             NavigationView {
-                ContentsListView(navigationViewModel: navigationViewModel, searchText: $searchText)
+                ContentsListView(searchText: $searchText)
             }
             .tabItem {
                 Label("Contents", systemImage: "list.bullet.clipboard")
