@@ -20,6 +20,10 @@ class SanctuaryListViewModel: ObservableObject {
     @ObservationIgnored private let reposity: SanctuaryRepository
     private var cancellables = [AnyCancellable]()
     
+    var uniqueTitles: [String] {
+        Array(Set(sanctuaries.map { $0.title })).sorted()
+    }
+    
     init(reposity: SanctuaryRepository = SanctuaryRepository.shared) {
         self.reposity = reposity
     }
@@ -45,7 +49,7 @@ class SanctuaryListViewModel: ObservableObject {
         }
         
         func googleMapsURL() -> URL {
-            let urlString = "https://www.google.com/maps/search/?api=1&query=\(coordinate.latitude),\(coordinate.longitude)"
+            let urlString = "https://www.google.com/maps/search/?api=1&query=\(coordinate.latitude),\(coordinate.longitude)&query_place_id=\(self.title)"
             return URL(string: urlString) ?? URL.applicationDirectory
         }
     }

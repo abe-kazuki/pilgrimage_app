@@ -21,9 +21,9 @@ struct ContentView: View {
                 Text("map").font(.custom("Times-Roman", size: 100))
                 Image(systemName: "command")
             }
-            UserView().tabItem {
-                Text("User").font(.custom("Times-Roman", size: 100))
-                Image(systemName: "command")
+            ContentsListView().tabItem {
+                Text("Contents").font(.custom("Times-Roman", size: 100))
+                Image(systemName: "book.pages")
             }
         }
     }
