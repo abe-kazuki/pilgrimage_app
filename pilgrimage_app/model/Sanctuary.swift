@@ -16,6 +16,8 @@ class SancutualyModel {
     let name: String
     let latitude: Double
     let longitude: Double
+    @Relationship(inverse: \ContentModel.sancutualies)
+    let content: ContentModel?
     
     init(id: String,name: String, latitude: Double, longitude: Double) {
         self.id = id
