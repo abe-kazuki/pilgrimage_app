@@ -1,5 +1,5 @@
 //
-//  userListViewModel.swift
+//  navigationViewModel.swift
 //  pilgrimage_app
 //
 //  Created by 阿部和貴 on 2024/03/04.
