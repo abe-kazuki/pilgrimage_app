@@ -11,7 +11,7 @@ struct ContentsListView: View {
     @ObservedObject private var viewModel: SanctuaryListViewModel = SanctuaryListViewModel()
     @EnvironmentObject var navigationViewModel: NavigationViewModel
     @Environment(\.modelContext) private var modelContext
-    @Binding var searchText: String
+    @Binding private var searchText: String
     
     init(searchText: Binding<String>) {
         self._searchText = searchText
