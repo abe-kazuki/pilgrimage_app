@@ -13,6 +13,6 @@ class NavigationViewModel: ObservableObject {
     @Published var selectedTab: Int = 0 // タブの選択状態を管理する状態
 
     func didSelectItem() {
-        self.selectedTab = 0
+        self.selectedTab = 1
     }
 }

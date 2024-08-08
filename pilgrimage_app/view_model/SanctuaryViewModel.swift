@@ -9,6 +9,32 @@ import SwiftUI
 import MapKit
 import Combine
 
+
+struct AnnotationSanctuary: Identifiable {
+    let id = UUID()
+    let coordinate: CLLocationCoordinate2D
+    let name: String
+    let color: Color
+    let title: String
+    
+    init(latitude: Double,
+         longitude: Double,
+         name: String,
+         title: String,
+         color: Color = .orange
+    ) {
+        self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        self.name = name
+        self.title = title
+        self.color = color
+    }
+    
+    func googleMapsURL() -> URL {
+        let urlString = "https://www.google.com/maps/search/?api=1&query=\(coordinate.latitude),\(coordinate.longitude)&query_place_id=\(self.title)"
+        return URL(string: urlString) ?? URL.applicationDirectory
+    }
+}
+
 class SanctuaryListViewModel: ObservableObject {
     @Published var sanctuaries: [AnnotationSanctuary] = [] {
         didSet {
@@ -31,30 +57,6 @@ class SanctuaryListViewModel: ObservableObject {
     }
     
     
-    struct AnnotationSanctuary: Identifiable {
-        let id = UUID()
-        let coordinate: CLLocationCoordinate2D
-        let name: String
-        let color: Color
-        let title: String
-        
-        init(latitude: Double,
-             longitude: Double,
-             name: String,
-             title: String,
-             color: Color = .orange
-        ) {
-            self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-            self.name = name
-            self.title = title
-            self.color = color
-        }
-        
-        func googleMapsURL() -> URL {
-            let urlString = "https://www.google.com/maps/search/?api=1&query=\(coordinate.latitude),\(coordinate.longitude)&query_place_id=\(self.title)"
-            return URL(string: urlString) ?? URL.applicationDirectory
-        }
-    }
     func fetchData() {
         reposity.fetchData()
             .receive(on: DispatchQueue.main)

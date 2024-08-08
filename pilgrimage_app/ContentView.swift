@@ -16,21 +16,29 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $navigationViewModel.selectedTab) {
             NavigationView {
+                TopView()
+            }
+            .tabItem {
+                Label("Map", systemImage: "map")
+            }
+            .tag(0)
+
+            NavigationView {
                 CustopMapView(navigationViewModel: navigationViewModel, searchText: $searchText)
             }
             .environmentObject(navigationViewModel)
             .tabItem {
                 Label("Map", systemImage: "map")
             }
-            .tag(0)
-            
+            .tag(1)
+
             NavigationView {
                 ContentsListView(searchText: $searchText)
             }
             .tabItem {
                 Label("Contents", systemImage: "list.bullet.clipboard")
             }
-            .tag(1)
+            .tag(2)
         }
     }
 }

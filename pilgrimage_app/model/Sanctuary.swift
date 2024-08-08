@@ -26,8 +26,8 @@ class SancutualyModel {
         self.longitude = longitude
     }
     
-    func convertoToSateDate(title: String)  -> SanctuaryListViewModel.AnnotationSanctuary {
-        SanctuaryListViewModel.AnnotationSanctuary(latitude: latitude,
+    func convertoToSateDate(title: String)  -> AnnotationSanctuary {
+        AnnotationSanctuary(latitude: latitude,
                                                    longitude: longitude,
                                                    name: name,
                                                    title: title)
