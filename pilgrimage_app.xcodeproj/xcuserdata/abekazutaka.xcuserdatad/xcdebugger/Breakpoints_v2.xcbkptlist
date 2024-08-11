@@ -7,15 +7,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C417877D-593F-431F-9A72-23FB67B126FB"
-            shouldBeEnabled = "Yes"
+            uuid = "8E27223B-45CD-4CF9-BEC5-FDB3A2C0A109"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pilgrimage_app/view_model/SanctuaryViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "fetchData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -23,65 +23,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D3C05C94-446F-4C44-9D95-923F575E209E"
+            uuid = "00F72632-868D-4C27-9112-5B89A2AA3795"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "pilgrimage_app/data/SanctuaryRepositoryImp.swift"
+            filePath = "pilgrimage_app/view_model/TopViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "fetchData()"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "setSanctuaryWithPhotos(contents:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CF103C29-1BD0-4BE9-9099-39282AC512A3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "pilgrimage_app/view_model/SanctuaryViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "fetchData()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CF103C29-1BD0-4BE9-9099-39282AC512A3 - de3bc726005ef27b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Array&lt;pilgrimage_app.ContentModel&gt;) -&gt; () in pilgrimage_app.SanctuaryListViewModel.fetchData() -&gt; ()"
-                  moduleName = "pilgrimage_app"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/abekazutaka/Repositories/pilgrimage_app/pilgrimage_app/view_model/SanctuaryViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "308">
-               </Location>
-               <Location
-                  uuid = "CF103C29-1BD0-4BE9-9099-39282AC512A3 - a47384913db5bb39"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (pilgrimage_app.ContentModel) -&gt; Swift.Array&lt;pilgrimage_app.SanctuaryListViewModel.AnnotationSanctuary&gt; in closure #2 (Swift.Array&lt;pilgrimage_app.ContentModel&gt;) -&gt; () in pilgrimage_app.SanctuaryListViewModel.fetchData() -&gt; ()"
-                  moduleName = "pilgrimage_app"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/abekazutaka/Repositories/pilgrimage_app/pilgrimage_app/view_model/SanctuaryViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

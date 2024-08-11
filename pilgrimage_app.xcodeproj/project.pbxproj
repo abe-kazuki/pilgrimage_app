@@ -27,11 +27,16 @@
 		DB79BD212B960534006CE137 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DB79BD202B960534006CE137 /* FirebaseFirestoreSwift */; };
 		DB79BD242B96061C006CE137 /* Sanctuary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79BD232B96061C006CE137 /* Sanctuary.swift */; };
 		DB79BD262B960634006CE137 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79BD252B960634006CE137 /* User.swift */; };
-		DB79BD292B96070E006CE137 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79BD282B96070E006CE137 /* UserListViewModel.swift */; };
+		DB79BD292B96070E006CE137 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79BD282B96070E006CE137 /* NavigationViewModel.swift */; };
 		DB79BD2B2B960982006CE137 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79BD2A2B960982006CE137 /* UserView.swift */; };
 		DB79BD2D2B960F53006CE137 /* SanctuaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79BD2C2B960F53006CE137 /* SanctuaryViewModel.swift */; };
+		DBAB254B2BED126400A478DD /* ContentsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB254A2BED126400A478DD /* ContentsListView.swift */; };
+		DBCB631B2C65179C0096A4B5 /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCB631A2C65179C0096A4B5 /* TopViewModel.swift */; };
+		DBCC44432BF3C65F0020F5EC /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBCC44422BF3C65F0020F5EC /* Media.xcassets */; };
+		DBE77D3D2C402652002CB790 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE77D3C2C402652002CB790 /* TopView.swift */; };
 		DBEF7F8F2BA32A83003E08AC /* SanctuaryRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEF7F8E2BA32A83003E08AC /* SanctuaryRepositoryImp.swift */; };
 		DBEF7F912BA332AB003E08AC /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEF7F902BA332AB003E08AC /* Content.swift */; };
+		DBEF7F962BC6F7F9003E08AC /* ContentInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEF7F952BC6F7F9003E08AC /* ContentInfoWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,16 +70,22 @@
 		DB5215A42B6C14ED004B4B1D /* pilgrimage_appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pilgrimage_appUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB5215A82B6C14ED004B4B1D /* pilgrimage_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pilgrimage_appUITests.swift; sourceTree = "<group>"; };
 		DB5215AA2B6C14ED004B4B1D /* pilgrimage_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pilgrimage_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DB6341462C11F6490099D725 /* pilgrimage_appRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pilgrimage_appRelease.entitlements; sourceTree = "<group>"; };
 		DB64116A2B7E6DCC0080D304 /* MaptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaptView.swift; sourceTree = "<group>"; };
 		DB64116C2B7E9A6B0080D304 /* RoundedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonStyle.swift; sourceTree = "<group>"; };
 		DB79BD102B96005B006CE137 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DB79BD232B96061C006CE137 /* Sanctuary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sanctuary.swift; sourceTree = "<group>"; };
 		DB79BD252B960634006CE137 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		DB79BD282B96070E006CE137 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		DB79BD282B96070E006CE137 /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		DB79BD2A2B960982006CE137 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		DB79BD2C2B960F53006CE137 /* SanctuaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanctuaryViewModel.swift; sourceTree = "<group>"; };
+		DBAB254A2BED126400A478DD /* ContentsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsListView.swift; sourceTree = "<group>"; };
+		DBCB631A2C65179C0096A4B5 /* TopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewModel.swift; sourceTree = "<group>"; };
+		DBCC44422BF3C65F0020F5EC /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		DBE77D3C2C402652002CB790 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		DBEF7F8E2BA32A83003E08AC /* SanctuaryRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanctuaryRepositoryImp.swift; sourceTree = "<group>"; };
 		DBEF7F902BA332AB003E08AC /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		DBEF7F952BC6F7F9003E08AC /* ContentInfoWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentInfoWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +123,7 @@
 		DB52157D2B6C14EC004B4B1D = {
 			isa = PBXGroup;
 			children = (
+				DBCC44422BF3C65F0020F5EC /* Media.xcassets */,
 				DB5215882B6C14EC004B4B1D /* pilgrimage_app */,
 				DB52159D2B6C14ED004B4B1D /* pilgrimage_appTests */,
 				DB5215A72B6C14ED004B4B1D /* pilgrimage_appUITests */,
@@ -133,6 +145,7 @@
 		DB5215882B6C14EC004B4B1D /* pilgrimage_app */ = {
 			isa = PBXGroup;
 			children = (
+				DB6341462C11F6490099D725 /* pilgrimage_appRelease.entitlements */,
 				DBEF7F8D2BA32A37003E08AC /* data */,
 				DB79BD272B9606F0006CE137 /* view_model */,
 				DB79BD222B960600006CE137 /* model */,
@@ -147,6 +160,9 @@
 				DB64116A2B7E6DCC0080D304 /* MaptView.swift */,
 				DB64116C2B7E9A6B0080D304 /* RoundedButtonStyle.swift */,
 				DB79BD2A2B960982006CE137 /* UserView.swift */,
+				DBEF7F952BC6F7F9003E08AC /* ContentInfoWindow.swift */,
+				DBAB254A2BED126400A478DD /* ContentsListView.swift */,
+				DBE77D3C2C402652002CB790 /* TopView.swift */,
 			);
 			path = pilgrimage_app;
 			sourceTree = "<group>";
@@ -196,8 +212,9 @@
 		DB79BD272B9606F0006CE137 /* view_model */ = {
 			isa = PBXGroup;
 			children = (
-				DB79BD282B96070E006CE137 /* UserListViewModel.swift */,
+				DB79BD282B96070E006CE137 /* NavigationViewModel.swift */,
 				DB79BD2C2B960F53006CE137 /* SanctuaryViewModel.swift */,
+				DBCB631A2C65179C0096A4B5 /* TopViewModel.swift */,
 			);
 			path = view_model;
 			sourceTree = "<group>";
@@ -328,6 +345,7 @@
 			files = (
 				DB5215932B6C14ED004B4B1D /* Preview Assets.xcassets in Resources */,
 				DB5215902B6C14ED004B4B1D /* Assets.xcassets in Resources */,
+				DBCC44432BF3C65F0020F5EC /* Media.xcassets in Resources */,
 				DB79BD112B96005B006CE137 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,14 +372,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB52158C2B6C14EC004B4B1D /* ContentView.swift in Sources */,
-				DB79BD292B96070E006CE137 /* UserListViewModel.swift in Sources */,
+				DBE77D3D2C402652002CB790 /* TopView.swift in Sources */,
+				DB79BD292B96070E006CE137 /* NavigationViewModel.swift in Sources */,
 				DB52158E2B6C14EC004B4B1D /* Item.swift in Sources */,
+				DBCB631B2C65179C0096A4B5 /* TopViewModel.swift in Sources */,
 				DB79BD262B960634006CE137 /* User.swift in Sources */,
 				DB64116D2B7E9A6B0080D304 /* RoundedButtonStyle.swift in Sources */,
 				DB79BD2D2B960F53006CE137 /* SanctuaryViewModel.swift in Sources */,
+				DBAB254B2BED126400A478DD /* ContentsListView.swift in Sources */,
 				DBEF7F8F2BA32A83003E08AC /* SanctuaryRepositoryImp.swift in Sources */,
 				DB64116B2B7E6DCC0080D304 /* MaptView.swift in Sources */,
 				DB79BD242B96061C006CE137 /* Sanctuary.swift in Sources */,
+				DBEF7F962BC6F7F9003E08AC /* ContentInfoWindow.swift in Sources */,
 				DB79BD2B2B960982006CE137 /* UserView.swift in Sources */,
 				DB52158A2B6C14EC004B4B1D /* pilgrimage_appApp.swift in Sources */,
 				DBEF7F912BA332AB003E08AC /* Content.swift in Sources */,
@@ -453,7 +475,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -510,7 +532,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -525,19 +547,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = pilgrimage_app/pilgrimage_app.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"pilgrimage_app/Preview Content\"";
 				DEVELOPMENT_TEAM = 44C7C58A7D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = pilgrimage_app/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -545,9 +570,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "OTNPS.pilgrimage-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -556,19 +585,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = pilgrimage_app/pilgrimage_app.entitlements;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = pilgrimage_app/pilgrimage_appRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"pilgrimage_app/Preview Content\"";
 				DEVELOPMENT_TEAM = 44C7C58A7D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = pilgrimage_app/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -576,9 +608,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "OTNPS.pilgrimage-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

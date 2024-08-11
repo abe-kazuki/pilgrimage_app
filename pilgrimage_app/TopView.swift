@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct TopView: View {
-    @ObservedObject private var viewModel: SanctuaryListViewModel = SanctuaryListViewModel()
+    @ObservedObject private var viewModel: TopViewModel = TopViewModel()
 
     @Environment(\.modelContext) private var modelContext
+    @State private var lookAroundScene: MKLookAroundScene?
     let layout = [GridItem(.adaptive(minimum: 100))]
     
     init() {
@@ -20,11 +22,23 @@ struct TopView: View {
         NavigationView {
             ScrollView(.vertical) {
                 LazyVGrid(columns: layout) {
-                    ForEach(viewModel.sanctuaries) { sanctuary in
+                    ForEach(viewModel.sanctuaryWithPhotos) { sanctuaryWithPhoto in
                         VStack {
-                            Text("\(sanctuary.name)")
+                            Text("\(sanctuaryWithPhoto.name)")
                                 .padding(5)
-                            Text("\(sanctuary.title)")
+                            Text("\(sanctuaryWithPhoto.title)")
+                                .padding(5)
+
+                            LookAroundPreview(initialScene: viewModel.lookAroundScenes[sanctuaryWithPhoto.name])
+                                .frame(height: 200)
+                                .overlay(alignment: .bottomTrailing) {
+                                    HStack {
+                                        Text("\(sanctuaryWithPhoto.name)")
+                                    }
+                                    .font(.caption)
+                                    .foregroundStyle(.white)
+                                    .padding(30)
+                                }
                         }
                     }
                 }
