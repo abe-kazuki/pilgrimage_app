@@ -19,7 +19,7 @@ struct ContentView: View {
                 TopView()
             }
             .tabItem {
-                Label("Map", systemImage: "map")
+                Label("home", systemImage: "house.fill")
             }
             .tag(0)
 

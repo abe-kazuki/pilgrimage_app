@@ -9,41 +9,45 @@ import SwiftUI
 import MapKit
 
 struct TopView: View {
-    @ObservedObject private var viewModel: TopViewModel = TopViewModel()
-
-    @Environment(\.modelContext) private var modelContext
-    @State private var lookAroundScene: MKLookAroundScene?
+    @StateObject private var viewModel: TopViewModel = TopViewModel()
     let layout = [GridItem(.adaptive(minimum: 100))]
-    
-    init() {
-        self.viewModel.fetchData()
-    }
+
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
                 LazyVGrid(columns: layout) {
+                }
+                
+                LazyVGrid(columns: layout) {
                     ForEach(viewModel.sanctuaryWithPhotos) { sanctuaryWithPhoto in
                         VStack {
-                            Text("\(sanctuaryWithPhoto.name)")
-                                .padding(5)
                             Text("\(sanctuaryWithPhoto.title)")
                                 .padding(5)
+                                .frame(height: 90)
 
                             LookAroundPreview(initialScene: viewModel.lookAroundScenes[sanctuaryWithPhoto.name])
-                                .frame(height: 200)
+                                .frame(height: 150)
+                                .cornerRadius(10) // 角を丸くする
                                 .overlay(alignment: .bottomTrailing) {
-                                    HStack {
-                                        Text("\(sanctuaryWithPhoto.name)")
-                                    }
-                                    .font(.caption)
-                                    .foregroundStyle(.white)
-                                    .padding(30)
+                                    Text(sanctuaryWithPhoto.name)
+                                        .font(.caption)
+                                        .foregroundColor(.white)
+                                        .background(Color.black.opacity(0.7)) // 背景を半透明の黒に設定
+                                        .cornerRadius(5)
                                 }
                         }
                     }
-                }
+                    .background(Color(.systemGray6)) // 背景色を設定
+                    .cornerRadius(10) // 角を丸くする
+                    .shadow(radius: 5) // 影を追加
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 2)
+                }.navigationTitle("今週の人気聖地")
             }
-            .navigationTitle("今週の人気聖地")
+            
+        }
+        .onAppear {
+            self.viewModel.fetchData()
         }
     }
 }

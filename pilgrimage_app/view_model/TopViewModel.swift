@@ -54,6 +54,7 @@ class TopViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
+    // TODO: データ取得なのでdata層が適切
     func requestLookAroundScene(coordinate: CLLocationCoordinate2D, sanctuaryName: String) {
         let request = MKLookAroundSceneRequest(coordinate: coordinate)
         Task {
@@ -67,7 +68,8 @@ class TopViewModel: ObservableObject {
                         print("Error fetching image: \(error)")
                     }
                 }, receiveValue: { [weak self] scene in
-                    self?.lookAroundScenes[sanctuaryName] = scene
+                    guard let self = self else { return }
+                    self.lookAroundScenes[sanctuaryName] = scene
                 })
                 .store(in: &cancellables)
         }
@@ -77,7 +79,9 @@ class TopViewModel: ObservableObject {
         self.sanctuaryWithPhotos = contents.flatMap { content in
             return content.sancutualies.map{ sancutualy in
                 let data = SanctuaryWithPhoto(name: sancutualy.name, title: content.title, latitude: sancutualy.latitude, longitude: sancutualy.longitude)
-                requestLookAroundScene(coordinate: data.coordinate, sanctuaryName: data.name)
+                if self.lookAroundScenes[data.name] == nil {
+                    requestLookAroundScene(coordinate: data.coordinate, sanctuaryName: data.name)
+                }
                 return data
             }
         }
