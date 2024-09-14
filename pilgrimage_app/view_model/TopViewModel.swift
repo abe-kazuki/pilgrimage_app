@@ -28,14 +28,18 @@ struct SanctuaryWithPhoto: Identifiable {
 
 class TopViewModel: ObservableObject {
     @ObservationIgnored private let sanctuaryReposity: SanctuaryRepository
+    @ObservationIgnored private let eventRepository: EventRepository
     private var cancellables = [AnyCancellable]()
     
     @Published var sanctuaryWithPhotos: [SanctuaryWithPhoto] = []
+    @Published var events: [Event] = []
+    @Published var images: [String: UIImage] = [:] // URLごとに画像を保持
     @Published var lookAroundScenes: [String: MKLookAroundScene] = [:]
     
     init(sanctuaryReposity: SanctuaryRepository = SanctuaryRepository.shared
     ) {
         self.sanctuaryReposity = sanctuaryReposity
+        self.eventRepository = EventRepository.shared
     }
     
     func fetchData() {
@@ -72,6 +76,38 @@ class TopViewModel: ObservableObject {
                     self.lookAroundScenes[sanctuaryName] = scene
                 })
                 .store(in: &cancellables)
+        }
+    }
+    
+    func fetchEnent() {
+        eventRepository.fetchData()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Data fetching completed!")
+                case .failure(let error):
+                    print("Error fetching data: \(error)")
+                }
+            }, receiveValue: { events in
+                self.events = events
+                self.events.forEach{event in
+                    self.image(title: event.title, path: event.image_path)
+                }
+            })
+            .store(in: &cancellables)
+    }
+    
+    func image(title: String, path: String) {
+        eventRepository.downloadImagre(from: path) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let downloadedImage):
+                    self.images[title] = downloadedImage
+                case .failure(let error):
+                    print("Error fetching data: \(error)")
+                }
+            }
         }
     }
 

@@ -15,9 +15,44 @@ struct TopView: View {
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
-                LazyVGrid(columns: layout) {
+                Text("本日のイベント")
+                    .font(.title2)
+                    .bold()
+                    .padding(.horizontal, 20)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(spacing: 20) {
+                        ForEach(viewModel.events) { event in
+                            VStack(spacing: 5) {
+                                Text(event.title)
+                                    .font(.headline)
+                                    .padding()
+                                    .frame(width: 150, height: 50)
+                                    .background(Color.blue.opacity(0.1))
+                                    .cornerRadius(10)
+                                if let image = viewModel.images[event.title] {
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 50, height: 50)
+                                        .foregroundColor(.blue)
+                                } else {
+                                    ProgressView("Loading...")
+                                }
+                            }
+                            .background(Color.white)
+                            .cornerRadius(15)
+                            .shadow(radius: 5)
+                            .padding(.vertical, 10)
+                        }
+                    }
+                    .padding(.horizontal, 20)
                 }
                 
+                Text("今週の人気聖地")
+                    .font(.title2)
+                    .bold()
+                    .padding(.horizontal, 20)
+                    .padding(.top, 10)
                 LazyVGrid(columns: layout) {
                     ForEach(viewModel.sanctuaryWithPhotos) { sanctuaryWithPhoto in
                         VStack {
@@ -42,12 +77,13 @@ struct TopView: View {
                     .shadow(radius: 5) // 影を追加
                     .padding(.vertical, 10)
                     .padding(.horizontal, 2)
-                }.navigationTitle("今週の人気聖地")
+                }
             }
             
         }
         .onAppear {
             self.viewModel.fetchData()
+            self.viewModel.fetchEnent()
         }
     }
 }
